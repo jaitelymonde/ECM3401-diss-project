@@ -1,0 +1,294 @@
+{
+    "nodes": [
+        {
+            "id": "EMR_System",
+            "data": {
+                "SLE": 6,
+                "ARO": 5
+            },
+            "position": {
+                "x": 100,
+                "y": 100
+            }
+        },
+        {
+            "id": "Nurse_Station",
+            "data": {
+                "SLE": 4,
+                "ARO": 4
+            },
+            "position": {
+                "x": 353.52354903826654,
+                "y": -110.2710855074756
+            }
+        },
+        {
+            "id": "Doctor_Terminal",
+            "data": {
+                "SLE": 5,
+                "ARO": 3
+            },
+            "position": {
+                "x": 500,
+                "y": 100
+            }
+        },
+        {
+            "id": "Pharmacy_Server",
+            "data": {
+                "SLE": 3,
+                "ARO": 3
+            },
+            "position": {
+                "x": 908.3595301846806,
+                "y": 101.91155532279521
+            }
+        },
+        {
+            "id": "Medical_Imaging",
+            "data": {
+                "SLE": 7,
+                "ARO": 2
+            },
+            "position": {
+                "x": 500,
+                "y": 300
+            }
+        },
+        {
+            "id": "Insurance_Records",
+            "data": {
+                "SLE": 6,
+                "ARO": 4
+            },
+            "position": {
+                "x": 698.0884446772046,
+                "y": 449.1013151780281
+            }
+        },
+        {
+            "id": "Audit_Archive",
+            "data": {
+                "SLE": 2,
+                "ARO": 1
+            },
+            "position": {
+                "x": 986.0199895257857,
+                "y": 290.4422233860238
+            }
+        },
+        {
+            "id": "Admin_Office",
+            "data": {
+                "SLE": 3,
+                "ARO": 2
+            },
+            "position": {
+                "x": 74.43647191016252,
+                "y": 407.0470980765331
+            }
+        },
+        {
+            "id": "Lab_System",
+            "data": {
+                "SLE": 5,
+                "ARO": 3
+            },
+            "position": {
+                "x": 216.60487469050918,
+                "y": 489.24397695672803
+            }
+        },
+        {
+            "id": "National_Health_DB",
+            "data": {
+                "SLE": 8,
+                "ARO": 1
+            },
+            "position": {
+                "x": 1044.5648956389384,
+                "y": 454.8359811464138
+            }
+        }
+    ],
+    "edges": [
+        {
+            "source": "EMR_System",
+            "target": "EMR_System",
+            "key": 0,
+            "controls": []
+        },
+        {
+            "source": "EMR_System",
+            "target": "Nurse_Station",
+            "key": 0,
+            "controls": [
+                {
+                    "name": "firewall",
+                    "effectiveness": 0.7,
+                    "direct_cost": 3,
+                    "indirect_cost": 2
+                }
+            ]
+        },
+        {
+            "source": "Nurse_Station",
+            "target": "Doctor_Terminal",
+            "key": 0,
+            "controls": [
+                {
+                    "name": "mfa",
+                    "effectiveness": 0.8,
+                    "direct_cost": 4,
+                    "indirect_cost": 2
+                }
+            ]
+        },
+        {
+            "source": "Nurse_Station",
+            "target": "Doctor_Terminal",
+            "key": 1,
+            "controls": [
+                {
+                    "name": "vpn",
+                    "effectiveness": 0.6,
+                    "direct_cost": 2,
+                    "indirect_cost": 1
+                }
+            ]
+        },
+        {
+            "source": "Doctor_Terminal",
+            "target": "Pharmacy_Server",
+            "key": 0,
+            "controls": [
+                {
+                    "name": "data_masking",
+                    "effectiveness": 0.65,
+                    "direct_cost": 3,
+                    "indirect_cost": 2
+                }
+            ]
+        },
+        {
+            "source": "Doctor_Terminal",
+            "target": "Medical_Imaging",
+            "key": 0,
+            "controls": [
+                {
+                    "name": "encryption",
+                    "effectiveness": 0.9,
+                    "direct_cost": 5,
+                    "indirect_cost": 3
+                }
+            ]
+        },
+        {
+            "source": "Doctor_Terminal",
+            "target": "Insurance_Records",
+            "key": 0,
+            "controls": [
+                {
+                    "name": "monitoring",
+                    "effectiveness": 0.65,
+                    "direct_cost": 2,
+                    "indirect_cost": 1
+                }
+            ]
+        },
+        {
+            "source": "Pharmacy_Server",
+            "target": "Insurance_Records",
+            "key": 0,
+            "controls": [
+                {
+                    "name": "audit_logging",
+                    "effectiveness": 0.7,
+                    "direct_cost": 2,
+                    "indirect_cost": 1
+                }
+            ]
+        },
+        {
+            "source": "Medical_Imaging",
+            "target": "Insurance_Records",
+            "key": 0,
+            "controls": [
+                {
+                    "name": "firewall",
+                    "effectiveness": 0.7,
+                    "direct_cost": 3,
+                    "indirect_cost": 2
+                }
+            ]
+        },
+        {
+            "source": "Insurance_Records",
+            "target": "Audit_Archive",
+            "key": 0,
+            "controls": [
+                {
+                    "name": "backup_system",
+                    "effectiveness": 0.6,
+                    "direct_cost": 4,
+                    "indirect_cost": 2
+                }
+            ]
+        },
+        {
+            "source": "Audit_Archive",
+            "target": "National_Health_DB",
+            "key": 0,
+            "controls": [
+                {
+                    "name": "access_control",
+                    "effectiveness": 0.8,
+                    "direct_cost": 4,
+                    "indirect_cost": 3
+                }
+            ]
+        },
+        {
+            "source": "Admin_Office",
+            "target": "EMR_System",
+            "key": 0,
+            "controls": [
+                {
+                    "name": "vpn",
+                    "effectiveness": 0.6,
+                    "direct_cost": 2,
+                    "indirect_cost": 1
+                }
+            ]
+        },
+        {
+            "source": "Lab_System",
+            "target": "Doctor_Terminal",
+            "key": 0,
+            "controls": [
+                {
+                    "name": "ids",
+                    "effectiveness": 0.75,
+                    "direct_cost": 3,
+                    "indirect_cost": 2
+                }
+            ]
+        },
+        {
+            "source": "Lab_System",
+            "target": "Medical_Imaging",
+            "key": 0,
+            "controls": [
+                {
+                    "name": "firewall",
+                    "effectiveness": 0.7,
+                    "direct_cost": 3,
+                    "indirect_cost": 2
+                }
+            ]
+        }
+    ],
+    "sinks": [
+        "National_Health_DB"
+    ]
+}
